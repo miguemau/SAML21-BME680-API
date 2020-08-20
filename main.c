@@ -36,6 +36,8 @@
 ;  /SS = active low SPI select signal
 ;
 ;*********************************************************************
+
+David estuvo aqui.
 */
 
 #include "saml21j18b.h"
@@ -91,7 +93,9 @@ int main (void) {
  */
  gas_sensor.amb_temp = 25;
  int8_t rslt = BME680_OK;
- rslt = bme680_init(&gas_sensor); /************ CONFIGURING SENSOR SETTINGS ************/ uint8_t set_required_settings;
+ rslt = bme680_init(&gas_sensor);
+ /************ CONFIGURING SENSOR SETTINGS ************/
+ uint8_t set_required_settings;
  /* Set the temperature, pressure and humidity settings */
  gas_sensor.tph_sett.os_hum = BME680_OS_2X;
  gas_sensor.tph_sett.os_pres = BME680_OS_4X;
@@ -168,7 +172,9 @@ int main (void) {
 		 {
 			 rslt = bme680_set_sensor_mode(&gas_sensor);
 		 }
-	} }	
+	} 
+}
+	
 	
 	
 	
@@ -215,7 +221,7 @@ int8_t user_spi_write(uint8_t dev_id, uint8_t reg_addr, uint8_t *reg_data, uint1
 	spi_transfer(*reg_data);	//write in reg_addr
 	}
 	REG_PORT_OUTSET1 |= 0x80;		//Bring CS high
-	int8_t rslt = 0; /* Return 0 for Success, non­zero for failure */
+	int8_t rslt = 0; /* Return 0 for Success, nonï¿½zero for failure */
 	return rslt;
 }
 
@@ -238,7 +244,7 @@ int8_t user_spi_read(uint8_t dev_id, uint8_t reg_addr, uint8_t *reg_data, uint16
 	*reg_data= spi_transfer(0x00);
 	}	//dummy byte for reading
 	REG_PORT_OUTSET1 |= 0x80;				//Bring CS high
-	int8_t rslt = 0; /* Return 0 for Success, non­zero for failure */
+	int8_t rslt = 0; /* Return 0 for Success, nonï¿½zero for failure */
 	return rslt;
 	}
 
